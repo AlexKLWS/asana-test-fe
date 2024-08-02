@@ -34,13 +34,15 @@ const PostsView = (props: Props) => {
       {selectedPost && (
         <div>
           <Card className="shadow-md border-0">
-            <img
-              src={selectedPost.thumbnail.url || ""}
-              alt={selectedPost.name}
-              width={600}
-              height={400}
-              className="rounded-lg mb-4 object-cover w-full h-64"
-            />
+            <div className="px-16 pt-8">
+              <img
+                src={selectedPost.thumbnail.url || ""}
+                alt={selectedPost.name}
+                width={600}
+                height={400}
+                className="rounded-lg mb-4 object-cover w-full h-64"
+              />
+            </div>
             <CardHeader>
               <CardTitle>{selectedPost.name}</CardTitle>
             </CardHeader>

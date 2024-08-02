@@ -21,7 +21,9 @@ const PostsLoader = () => {
           ))}
       </div>
       <Card className="shadow-md border-0">
-        <Skeleton className="mb-4 object-cover w-full h-64" />
+        <div className="px-16 pt-8">
+          <Skeleton className="mb-4 object-cover w-full h-64" />
+        </div>
         <CardHeader>
           <CardTitle>
             <Skeleton className="h-8 w-[250px]" />
