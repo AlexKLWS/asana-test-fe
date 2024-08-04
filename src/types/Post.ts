@@ -4,7 +4,5 @@ export type Post = {
   tagline: string | null;
   description: string | null;
   createdAt: string;
-  thumbnail: {
-    url: string | null;
-  };
+  thumbnailUrl: string | null;
 };

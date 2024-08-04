@@ -1,10 +1,8 @@
+import { Post } from "./Post";
 import { PostWithTopicResponse } from "./PostWithTopicResponse";
 
 export type PostsResponse = {
-  data: {
-    posts: {
-      totalCount: number;
-      edges: { node: PostWithTopicResponse }[];
-    };
-  };
+  totalCount: number;
+  posts?: Post[] | null;
+  forYou?: Post[] | null;
 };
