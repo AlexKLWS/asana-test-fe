@@ -9,18 +9,21 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import { PostsResponse } from "@/types/PostsResponse";
-import { PostWithTopicResponse } from "@/types/PostWithTopicResponse";
 import { Post } from "@/types/Post";
 import { Button } from "@/components/ui/button";
+import { sendViewedPost } from "@/actions/sendViewedPost";
 
 type Props = {
   postsResponse: PostsResponse;
 };
 
 const PostsView = (props: Props) => {
-  const [selectedPost, setSelectedPost] = useState<Post | undefined>(
-    props.postsResponse.posts?.[0]
-  );
+  const [selectedPost, setSelectedPost] = useState<Post | undefined>();
+
+  const onPostSelect = (post: Post) => {
+    setSelectedPost(post);
+    sendViewedPost(post);
+  };
 
   const [isForYouOpen, setIsForYouOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -58,7 +61,7 @@ const PostsView = (props: Props) => {
                     ? "border-orange-400"
                     : "border-0"
                 } shadow-md cursor-pointer hover:shadow-lg transition-shadow p-4 lg:p-8 bg-white/80`}
-                onClick={() => setSelectedPost(post)}
+                onClick={() => onPostSelect(post)}
               >
                 <CardTitle className="text-lg font-medium">
                   {post.name}
@@ -76,7 +79,7 @@ const PostsView = (props: Props) => {
                         ? "border-orange-400"
                         : "border-0"
                     } shadow-md cursor-pointer hover:shadow-lg transition-shadow p-4 lg:p-8 bg-white/80`}
-                    onClick={() => setSelectedPost(post)}
+                    onClick={() => onPostSelect(post)}
                   >
                     <CardTitle className="text-lg font-medium">
                       {post.name}
@@ -111,7 +114,7 @@ const PostsView = (props: Props) => {
                     ? "border-orange-400"
                     : "border-0"
                 } shadow-md cursor-pointer hover:shadow-lg transition-shadow p-4 lg:p-8 bg-white/80`}
-                onClick={() => setSelectedPost(post)}
+                onClick={() => onPostSelect(post)}
               >
                 <CardTitle className="text-lg font-medium">
                   {post.name}
@@ -129,7 +132,7 @@ const PostsView = (props: Props) => {
                         ? "border-orange-400"
                         : "border-0"
                     } shadow-md cursor-pointer hover:shadow-lg transition-shadow p-4 lg:p-8 bg-white/80`}
-                    onClick={() => setSelectedPost(post)}
+                    onClick={() => onPostSelect(post)}
                   >
                     <CardTitle className="text-lg font-medium">
                       {post.name}
@@ -151,7 +154,7 @@ const PostsView = (props: Props) => {
               className={`${
                 post.id === selectedPost?.id ? "border-orange-400" : "border-0"
               } shadow-md cursor-pointer hover:shadow-lg transition-shadow p-4 lg:p-8 bg-white/80`}
-              onClick={() => setSelectedPost(post)}
+              onClick={() => onPostSelect(post)}
             >
               <CardTitle className="text-lg font-medium">{post.name}</CardTitle>
             </Card>
@@ -163,7 +166,7 @@ const PostsView = (props: Props) => {
               className={`${
                 post.id === selectedPost?.id ? "border-orange-400" : "border-0"
               } shadow-md cursor-pointer hover:shadow-lg transition-shadow p-4 lg:p-8 bg-white/80`}
-              onClick={() => setSelectedPost(post)}
+              onClick={() => onPostSelect(post)}
             >
               <CardTitle className="text-lg font-medium">{post.name}</CardTitle>
             </Card>
