@@ -1,5 +1,4 @@
 import { Post } from "./Post";
-import { PostWithTopicResponse } from "./PostWithTopicResponse";
 
 export type PostsResponse = {
   totalCount: number;

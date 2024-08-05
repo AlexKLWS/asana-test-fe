@@ -1,3 +1,5 @@
+import { Topic } from "./Topic";
+
 export type Post = {
   id: string;
   name: string;
@@ -5,4 +7,5 @@ export type Post = {
   description: string | null;
   createdAt: string;
   thumbnailUrl: string | null;
+  topics: Topic[];
 };
