@@ -8,7 +8,7 @@ const PostsLoader = () => {
     <>
       <div className="text-orange-500 mx-auto my-4 text-center animate-pulse text-wrap text-lg">
         {
-          "Unfortunately, Java Lambda cold star can take up to 40 seconds, please try refreshing the page if it takes longer"
+          "Unfortunately, JVM Lambda cold start can take up to 40 seconds, please try refreshing the page if it takes longer"
         }
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto py-12 px-4">
